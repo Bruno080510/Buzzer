@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Minha Extensão",
+    "version": "1.0",
+    "description": "Verifica a segurança dos sites usando VirusTotal",
+    "permissions": ["tabs",
+     "activeTab", 
+     "webRequest", 
+     "webRequestBlocking",
+     "webNavigation", 
+     "storage", 
+     "https://www.virustotal.com/api/", 
+     "https://www.virustotal.com/api/*",
+     "notifications",
+     "https://www.virustotal.com/vtapi/v2/*",
+     "unlimitedStorage",
+     "https://*/*",   
+    "http://*/*" 
+
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": [
+      "https://www.virustotal.com/*"
+      ]
+  }
+  
