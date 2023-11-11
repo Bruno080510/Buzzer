@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Confirmation Page</title>
 </head>
 <body>
-    <p>Deseja continuar para o site?</p>
-    <button id="yesButton">Sim</button>
-    <button id="noButton">Não</button>
+    <div class="popup-all">
+            <div class="popup-content">
+                <h1 id="status" class="titulo">Alerta de site não seguro!!</h1>
+                <p >O site que você está acessando apresenta pode apresentar alguma ameaça para você
+                     e foi bloqueado pela Buzzer para preservar sua segurança.</p>
+                <img id="imagem" src="./images/beered.png" class="bee">
+            </div>
+            <div>
+                <p id="subtitulo">Deseja continuar para o site?</p>
+                <div id="buttons">
+                    <button id="yesButton">Sim</button>
+                    <button id="noButton">Não</button>
+                </div>
+            </div>
+    </div>
 
     <script src="confirmation.js">
     </script>

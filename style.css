@@ -10,13 +10,19 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 7vh;
     min-height: 100vh;
     background-color: #1D0B38;
 }
 
+p{
+    color: #fff;
+    padding-left: 56vh;
+    padding-right: 56vh;
+    font-size: 1rem;
+}
+
 .popup {
-    background-color: #1D0B38;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -25,23 +31,51 @@ body {
 
 .titulo{
     color: #fff;
-    font-size: 20px;
+    font-size: 3rem;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.subtitulo{
+#subtitulo{
     color: #fff;
-    font-size: 10px;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .popup-content {
     text-align: center;
 }
 
-.bee {
-    width: 100px;
+.popup-all{
+    display: flex;
+    flex-direction: column;
+}
 
+#buttons{
+    text-align: center;
+}
+
+button{
+    width: 16vh;
+    height: 7vh;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#yesButton{
+    background-color: rgb(12, 202, 5);
+}
+
+#noButton{
+    background-color: red;
+}
+
+.bee {
+    width: 250px;
+    justify-content: center;
     animation: upAndDown 2s ease-in-out infinite;
 }
 
