@@ -1,8 +1,9 @@
 {
     "manifest_version": 3,
-    "name": "Minha Extensão",
-    "version": "1.0",
-    "description": "Verifica a segurança dos sites usando VirusTotal",
+    "name": "Buzzer",
+    "author": "Bruno Leal e Kalisson Yuri",
+    "version": "1.2",
+    "description": "Extensão destinada para a verificação de sites não seguro, auxiliando o usuário a ter uma melhor navegação",
     "permissions": ["tabs",
      "activeTab", 
      "webRequest", 
@@ -16,13 +17,22 @@
      "unlimitedStorage",
      "https://*/*",   
     "http://*/*" 
-
     ],
+    "icons": {
+      "16": "./images/logo.png",
+      "48": "./images/logo.png",
+      "128": "./images/logo.png"
+  },
     "background": {
       "service_worker": "background.js"
     },
     "host_permissions": [
       "https://www.virustotal.com/*"
-      ]
+      ],
+      "browser_specific_settings": {
+        "gecko": {
+            "id": "brunolealmaciel@gmail.com"
+        }
+    } 
   }
   
