@@ -6,6 +6,9 @@ const src = "about:src";
 const adTrackingUrl = "https://ce.lijit.com/beacon?informer=&gdpr_consent=&us_privacy=&gpp=&gpp_sid=";
 const yt = "https://www.youtube.com/";
 const double = "https://ogs.google.com/u/0/widget/app?awwd=1&gm3=1&origin=chrome-untrusted%3A%2F%2Fnew-tab-page&origin=chrome%3A%2F%2Fnew-tab-page&cn=app&pid=1&spid=243&hl=pt-BR";
+const devtools = "devtools://devtools/bundled/worker_app.html?remoteBase=https://chrome-devtools-frontend.appspot.com/serve_file/@eaa767197fa7dd412133d1b84f7eb60da43409c9/&hasOtherClients=true&browserConnection=true"
+const chromeUntrusted = "chrome-untrusted://new-tab-page/one-google-bar?paramsencoded="
+const accountsGoogle = "https://accounts.google.com/RotateCookiesPage?og_pid=1&rot=1&origin=https%3A%2F%2Fwww.google.com&exp_id=3701174"
 
 let checkedUrls = [];
 
@@ -20,7 +23,9 @@ async function checkSiteSecurity(url) {
     url.startsWith(src) ||
     url == adTrackingUrl ||
     url.startsWith(yt) ||
-    url.startsWith(double)||
+    url.startsWith(double) ||
+    url.startsWith(devtools) ||
+    url.startsWith(chromeUntrusted) || url.startsWith(accountsGoogle)||
     checkedUrls.some(checkedUrl => url.includes(checkedUrl))
   ) {
     console.log("Oii");
@@ -87,17 +92,22 @@ async function checkSiteSecurity(url) {
   }
 }
 
-chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
+chrome.webNavigation.onCommitted.addListener(function (details) {
   const url = details.url;
 
-  const unwantedRedirects = [
-    "data:text/html;charset=utf-8;base64,PGltZyBzcmM9Imh0dHBzOi8vYnJva2VyLXF4LnByby9mYXZpY29uLmljbyI+",
-    "data:text/html;charset=utf-8;base64,PGltZyBzcmM9Imh0dHBzOi8vd3d3LmJldDM2NS5jb20vZmF2aWNvbi5pY28iPg=="
-  ];
-
-  if (unwantedRedirects.some(unwantedUrl => url === unwantedUrl)) {
-    console.log('Redirecionamento indesejado detectado. Bloqueando...');
-    chrome.tabs.update({ url: '/confirmation.html' });
+  if (
+    url === "chrome://new-tab-page/" ||
+    url.startsWith(toCheck) ||
+    url.startsWith(toGet) ||
+    url.startsWith(toBlank) ||
+    url.includes("/confirmation.html") ||
+    url.startsWith(naosei) ||
+    url.startsWith(src) ||
+    url == adTrackingUrl ||
+    url.startsWith(yt) ||
+    url.startsWith(double)
+  ) {
+    console.log("Acesso permitido para:", url);
     return;
   }
 
