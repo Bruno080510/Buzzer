@@ -4,20 +4,17 @@
     "author": "Bruno Leal e Kalisson Yuri",
     "version": "1.2",
     "description": "Extensão destinada para a verificação de sites não seguro, auxiliando o usuário a ter uma melhor navegação",
-    "permissions": ["tabs",
-     "activeTab", 
-     "webRequest", 
-     "webRequestBlocking",
-     "webNavigation", 
-     "storage", 
-     "https://www.virustotal.com/api/", 
-     "https://www.virustotal.com/api/*",
-     "notifications",
-     "https://www.virustotal.com/vtapi/v2/*",
-     "unlimitedStorage",
-     "https://*/*",   
-    "http://*/*" 
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "webNavigation",
+      "storage",
+      "https://www.virustotal.com/*",
+      "unlimitedStorage",
+      "https://*/*",
+      "http://*/*"
     ],
+    
     "icons": {
       "16": "./images/logo.png",
       "48": "./images/logo.png",
